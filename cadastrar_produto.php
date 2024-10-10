@@ -32,25 +32,35 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastrar Produto</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/f2f4add29b.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 </head>
 <body>
-    <h1>Cadastrar Produto</h1>
+    <div class="container mt-5">
+        <div class="text-center mt-4">
+            <h1 class="mb-4">Cadastrar Produto</h1>
+        </div>
 
-    <?php if (isset($success)) echo "<p style='color:green;'>$success</p>"; ?>
-    <?php if (isset($error)) echo "<p style='color:red;'>$error</p>"; ?>
+        <?php if (isset($success)) echo "<div class='alert alert-success'>$success</div>"; ?>
+        <?php if (isset($error)) echo "<div class='alert alert-danger'>$error</div>"; ?>
 
-    <form action="cadastrar_produto.php" method="post">
-        <label for="nome">Nome do Produto:</label>
-        <input type="text" name="nome" id="nome" required><br><br>
+        <form action="cadastrar_produto.php" method="post" class="mb-3">
+            <div class="form-group">
+                <label for="nome">Nome do Produto:</label>
+                <input type="text" name="nome" id="nome" class="form-control" required>
+            </div>
 
-        <label for="estoque">Estoque:</label>
-        <input type="number" name="estoque" id="estoque" min="0" required><br><br>
+            <div class="form-group">
+                <label for="estoque">Estoque:</label>
+                <input type="number" name="estoque" id="estoque" class="form-control" min="0" required>
+            </div>
 
-        <button type="submit">Cadastrar Produto</button>
-    </form>
-
-    <br>
-    <a href="index.php">Voltar para a página inicial</a>
+            <button type="submit" class="btn btn-primary">Cadastrar Produto</button>
+        </form>
+        <div class="text-center mt-3">
+            <a href="index.php" class="btn btn-secondary">Voltar para a página inicial</a>
+        </div>
+    </div>
 
 </body>
 </html>
